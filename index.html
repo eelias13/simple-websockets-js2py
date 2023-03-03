@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocker Client</title>
+
+
+    <script>
+        const sendToWS = () => {
+            const socket = new WebSocket('ws://localhost:3000');
+            msg = document.getElementById("input").value;
+            console.log("try to send '" + msg + "'")
+
+            socket.addEventListener('open', function (event) {
+                socket.send(msg);
+            });
+
+            socket.addEventListener('message', function (event) {
+                console.log("WebSocket response: '" + event.data + "'");
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="input" name="input">
+    <button onclick="sendToWS()">Sent to ws</button>
+</body>
+
+</html>
