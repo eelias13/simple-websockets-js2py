@@ -8,10 +8,10 @@ python3 app.py
 
 start web server
 ```sh
-python -m http.server
+python3 -m http.server
 ```
 
 ws connection for debugging
 ```sh
-python -m websockets ws://localhost:3000
+python3 -m websockets ws://localhost:3000
 ```
